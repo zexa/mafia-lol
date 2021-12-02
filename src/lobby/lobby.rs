@@ -1,15 +1,13 @@
-use crate::player::player::Player;
-use crate::player::player_role::player_role::PlayerRole;
-use crate::lobby::lobby_status::LobbyStatus;
-use nanoid::nanoid;
+use crate::lobby::LobbyPlayer;
+use crate::lobby::LobbyStatus;
 
 #[derive(Debug)]
 pub struct Lobby {
     pub id: String,
-    pub players: Vec<Player>,
+    pub players: Vec<LobbyPlayer>,
     pub logs: Vec<String>,
     pub status: LobbyStatus,
-    pub role_pool: Vec<PlayerRole>,
+    //pub role_pool: Vec<PlayerRole>,
 }
 
 impl Lobby {
