@@ -2,6 +2,7 @@ use nanoid::nanoid;
 use crate::lobby::LobbyPlayer;
 use crate::lobby::Lobby;
 use crate::lobby::LobbyStatus;
+use crate::game::GamePlayerRole;
 
 pub struct LobbyManager;
 
@@ -12,7 +13,7 @@ impl LobbyManager {
             players: Vec::<LobbyPlayer>::new(),
             logs: Vec::<String>::new(),
             status: LobbyStatus::Inactive,
-            //role_pool: Vec::<PlayerRole>::new(),
+            role_pool: Vec::<GamePlayerRole>::new(),
         };
         lobby.logs.push(format!("Lobby was created with id \"{}\"", lobby.get_id()));
 
@@ -26,19 +27,20 @@ impl LobbyManager {
         lobby
     }
 
-   // pub fn set_role_pool(lobby: &mut Lobby, role_pool: Vec<PlayerRole>) -> &Lobby {
-   //     lobby.role_pool = role_pool.clone();
-   //     lobby.logs.push(format!(
-   //         "Lobby role pool set to \"{}\"", 
-   //         role_pool
-   //             .into_iter()
-   //             .map(|role| PlayerRoleManager::get_role_description(&role).name)
-   //             .collect::<Vec<String>>()
-   //             .join(", ")
-   //     ));
+   pub fn set_role_pool(lobby: &mut Lobby, role_pool: Vec<GamePlayerRole>) -> &Lobby {
+       lobby.role_pool = role_pool.clone();
+       lobby.logs.push(format!("Lobby role pool updated to {:?}", role_pool));
+       //lobby.logs.push(format!(
+       //    "Lobby role pool set to \"{}\"", 
+       //    role_pool
+       //        .into_iter()
+       //        .map(|role| PlayerRoleManager::get_role_description(&role).name)
+       //        .collect::<Vec<String>>()
+       //        .join(", ")
+       //));
 
-   //     lobby
-   // }
+       lobby
+   }
 
     pub fn start_game(lobby: &mut Lobby) -> &Lobby {
         lobby.status = LobbyStatus::Active;

@@ -1,4 +1,5 @@
 mod lobby;
+mod game;
 
 use crate::lobby::LobbyManager;
 use crate::lobby::LobbyPlayerManager;

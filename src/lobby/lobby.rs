@@ -1,5 +1,6 @@
 use crate::lobby::LobbyPlayer;
 use crate::lobby::LobbyStatus;
+use crate::game::GamePlayerRole;
 
 #[derive(Debug)]
 pub struct Lobby {
@@ -7,7 +8,7 @@ pub struct Lobby {
     pub players: Vec<LobbyPlayer>,
     pub logs: Vec<String>,
     pub status: LobbyStatus,
-    //pub role_pool: Vec<PlayerRole>,
+    pub role_pool: Vec<GamePlayerRole>,
 }
 
 impl Lobby {

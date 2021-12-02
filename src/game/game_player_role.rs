@@ -1,5 +1,5 @@
 #[derive(Debug, Clone)]
-pub enum PlayerRole {
+pub enum GamePlayerRole {
     Unassigned, // Specatator
     Admin,
 
